@@ -110,3 +110,28 @@ logMessage("디버깅 모드 활성화", LogLevel.Debug);
 
 /** 4. 아래 조건을 만족하는 함수를 작성하세요. */
 
+function processAny(input: any): string {
+  // 여기에 구현
+   return input.toString();
+}
+
+function processUnknown(input: unknown): string | number {
+  // 여기에 구현
+  if(typeof input === "string") {
+    return input.toUpperCase();
+  } else if(typeof input === "number") {
+    return input * 10
+ } else {
+    throw new Error("type error");
+ }
+}
+
+// 테스트 코드
+console.log(processAny("hello")); // 기대 출력: "hello"
+console.log(processAny(42)); // 기대 출력: "42"
+console.log(processAny(true)); // 기대 출력: "true"
+
+console.log(processUnknown("hello")); // 기대 출력: "HELLO"
+console.log(processUnknown(42)); // 기대 출력: 420
+console.log(processUnknown(true)); // 에러 발생
+
